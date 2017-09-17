@@ -12,46 +12,41 @@ class App extends Component {
          tweeds :[],
          inputContentValue :'',
       }
-
       this.handleInputContentValue = this.handleInputContentValue.bind(this);
       this.handleTweedsSubmit = this.handleTweedsSubmit.bind(this);
-  }
+    }
 
   componentDidMount(){
-     axios('http://localhost:3001/api/tweeds/')
-        .then(res => {
-            this.setState(prevState=>{
-               console.log('componentDid before return ',res.data.data.tweeds )
-               return{
-                  tweeds:res.data.data.tweeds,
-               }
-            });
-
+    axios('http://localhost:3001/api/tweeds/')
+      .then(res => {
+        this.setState(prevState=>{
+         console.log('componentDid before return ',res.data.data.tweeds )
+          return{
+            tweeds:res.data.data.tweeds,
+             }
+          });
         });
-  }
+      }
 
   handleTweedsSubmit(event){
-
      console.log('handleTweedsSubmit');
      axios.post('http://localhost:3001/api/tweeds/', {
        tweed: this.state.inputContentValue,
      })
      .then(res => {
       {
-         const tweed ={
+        const tweed ={
            tweeds: res.data.data.tweeds,
-         }
-
+        }
         console.log("handleTweedsSub" , this.state);
-
         this.setState((prevState)=>{
-            return{
-                tweeds: prevState.tweeds.concat(tweed)
-            }
+          return{
+            tweeds: prevState.tweeds.concat(tweed)
+          }
         })
-     }
+      }
     }).catch(err =>console.log(err));
- }
+  }
 
   handleInputContentValue(event) {
     this.setState({
@@ -62,15 +57,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <TweedrForm
-             handleTweedsSubmit={this.handleTweedsSubmit}
-             handleInputContentValue={this.handleInputContentValue}
-             inputContentValue={this.state.inputContentValue}
-         />
-         <TweedrFeed
-             data={this.state.tweeds}
-
-         />
+        <TweedrForm
+          handleTweedsSubmit={this.handleTweedsSubmit}
+          handleInputContentValue={this.handleInputContentValue}
+          inputContentValue={this.state.inputContentValue}
+        />
+        <TweedrFeed
+          data={this.state.tweeds}
+        />
       </div>
     );
   }
