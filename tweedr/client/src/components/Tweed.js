@@ -7,7 +7,7 @@ class Tweed extends Component {
     console.log('Tweed rendering');
     return (
       <div className="Single-Tweed-Div">
-        <h2>{this.props.tweed.content} </h2>
+        <h2>{this.props.tweed.tweed_text} </h2>
       </div>
     )
 
