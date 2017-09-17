@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   handleTweedsSubmit(event){
-     event.preventDefault();
+
      console.log('handleTweedsSubmit');
      axios.post('http://localhost:3001/api/tweeds/', {
        tweed: this.state.inputContentValue,
@@ -43,6 +43,7 @@ class App extends Component {
          }
 
         console.log("handleTweedsSub" , this.state);
+
         this.setState((prevState)=>{
             return{
                 tweeds: prevState.tweeds.concat(tweed)
@@ -68,6 +69,7 @@ class App extends Component {
          />
          <TweedrFeed
              data={this.state.tweeds}
+
          />
       </div>
     );
