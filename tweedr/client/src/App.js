@@ -19,9 +19,9 @@ class App extends Component {
 
   componentDidMount(){
      axios('http://localhost:3001/api/tweeds/')
-        .then(res=> {
+        .then(res => {
             this.setState(prevState=>{
-
+               console.log('componentDid before return ',res.data.data.tweeds )
                return{
                   tweeds:res.data.data.tweeds,
                }
@@ -30,20 +30,19 @@ class App extends Component {
         });
   }
 
-  handleTweedsSubmit(){
-
+  handleTweedsSubmit(event){
+     event.preventDefault();
+     console.log('handleTweedsSubmit');
      axios.post('http://localhost:3001/api/tweeds/', {
-      tweed: this.state.tweed.tweed_text,
+       tweed: this.state.inputContentValue,
      })
      .then(res => {
       {
          const tweed ={
            tweeds: res.data.data.tweeds,
          }
-        //  tweed_text: res.data.data.tweeds,
 
-        //   console.log(this.state.tweeds[0].tweed_text);
-
+        console.log("handleTweedsSub" , this.state);
         this.setState((prevState)=>{
             return{
                 tweeds: prevState.tweeds.concat(tweed)

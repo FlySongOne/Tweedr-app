@@ -12,8 +12,7 @@ class TweedrFeed extends Component {
           return <Tweed tweed={tweed} key={tweed.id} />
         })}
       </div>
-    )
-  }
+    )}
 }
 
 export default TweedrFeed;

@@ -10,6 +10,7 @@ class Tweed extends Component {
         <h2>{this.props.tweed.content} </h2>
       </div>
     )
+
   }
 }
 export default Tweed;

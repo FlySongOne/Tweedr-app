@@ -14,7 +14,7 @@ class TweedrForm extends Component {
           name="content"
           placeholder="Add your Thoughts"
           //Need to add handleInputContentChange to App.js
-          onChange={this.props.handleInputContentChange}
+          onChange={this.props.handleInputContentValue}
       /><br/>
         <button id="submit">Post Tweed!!</button>
       </form>
