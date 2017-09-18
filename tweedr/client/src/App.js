@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import TweedrForm from './components/TweedrForm';
@@ -57,6 +57,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div id="nav">
+          <p>tweedr</p>
+        </div>
         <TweedrForm
           handleTweedsSubmit={this.handleTweedsSubmit}
           handleInputContentValue={this.handleInputContentValue}
